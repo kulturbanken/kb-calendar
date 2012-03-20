@@ -1,0 +1,131 @@
+.kbcal {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid black;
+    float: left;
+}
+
+.kbcal-blockheader {
+    margin-bottom: 0 !important;
+}
+
+.kbcal-calendar-wrapper {
+    text-align: center;
+    margin-top: 0;
+}
+
+.kbcal-calendar {
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+}
+
+.kbcal-calendar-wrapper-wrapper {
+    border: 8px solid grey;
+    padding: 10px;
+}
+
+.kbcal-week-previous {
+    float: left;
+    background-image: url(pilvanster.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-left: 25px;
+    height: 25px;
+}
+.kbcal-week-next {
+    float: right;
+    background-image: url(pilhoger.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding-right: 25px;
+    height: 25px;
+}
+.kbcal-week-navigator a { color: white !important; }
+.kbcal-week-navigator   {
+    clear: both;
+    background-color: grey;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: middle !important;
+}
+
+.kbcal a {
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+    margin: 0;
+    padding: 0;
+}
+
+.kbcal a:hover {
+    background-color: silver;
+}
+
+.kbcal tr {
+    border-top: 1px solid #E0E0E0;
+}
+
+.kbcal tr.marker {
+    border-bottom: 1px solid #808080;
+}
+
+.kbcal td,
+.kbcal th {
+    width: 38px;
+    height: 8px;
+    border: none;
+    border-right: 1px solid #808080;
+    padding: 0;
+    margin: 0;
+}
+
+.kbcal th {
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid #808080;
+    border-top: none;
+}
+
+.kbcal th.hour {
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.kbcal tr:first-child { border-top: 1px solid #808080; }
+
+table.kbcal td.bokad {
+    background-color: #FCB040;
+}
+
+table.kbcal td.unconfirmed {
+    background-color: #F88 !important;
+}
+
+.kbcal-ugly-spacer { 
+     float: left;
+     width: 20px;                        
+}
+
+.kbcal-view-booking th, .kbcal-view-booking td {
+    text-align: left;
+    border: 0;
+    padding: 4px;
+    padding-right: 20px;
+    white-space: nowrap;
+}
+
+.kbcal-view-booking table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.kbcal-view-booking button {
+    padding: 12px;
+    margin: 20px;
+}
+
+.kbcal-view-booking textarea {
+    width: 100%;
+    min-height: 60px;
+}
