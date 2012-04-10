@@ -78,18 +78,25 @@ function kbcal_update_db_check() {
 }
 add_action('plugins_loaded', 'kbcal_update_db_check');
 
-function get_bookings($weeknr)
+function get_bookings($week_start)
 {
         global $wpdb, $kbcal_table_name;
 
         $ret = array();
-
-        $bookings = $wpdb->get_results("
+        $week_end = clone $week_start;
+        $week_end->add(new DateInterval("P7D"));
+        $week_start_string = $week_start->format(FORMAT_MYSQL);
+        $week_end_string = $week_end->format(FORMAT_MYSQL);
+        $sql = <<<EOF
                 SELECT id,booked_from,booked_to,confirmed_at
                 FROM $kbcal_table_name
-                WHERE $weeknr BETWEEN WEEK(booked_from) AND WEEK(booked_to)
+                WHERE (booked_from >= "$week_start_string"
+                       AND booked_from < "$week_end_string")
+                OR (booked_to >= "$week_start_string"
+                    AND booked_to < "$week_end_string")
                 ORDER BY booked_from
-                ");
+EOF;
+        $bookings = $wpdb->get_results($sql);
 
         if ($bookings) {
                 foreach ($bookings as $booking) {
@@ -171,7 +178,7 @@ function gen_calendar_block($year, $week)
         }
         $table .= "</tr>\n";
 
-        $bookings = get_bookings($week);
+        $bookings = get_bookings($week_start);
 
         for ($row = 0; $row < 48; $row++) {
                 $rowclass = array("kbcal-row-$row");
