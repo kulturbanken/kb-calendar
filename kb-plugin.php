@@ -303,7 +303,8 @@ $name har gjort en bokningsbegäran. Mer info här:
 
 $link
 EOF;
-        wp_mail("daniel@nystrom.st", "[KB20] Bokningsförfrågan", $body,
+        wp_mail("daniel@nystrom.st,mats@matse.st,rosangen@gmail.com,erske81@gmail.com",
+		"[KB20] Bokningsförfrågan", $body,
                 "From: KB20 Bokningssystem <no-reply@kb20.se>");
 
         // Mail to booker
