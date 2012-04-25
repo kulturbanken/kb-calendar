@@ -94,6 +94,8 @@ function get_bookings($week_start)
                        AND booked_from < "$week_end_string")
                 OR (booked_to >= "$week_start_string"
                     AND booked_to < "$week_end_string")
+                OR (booked_from < "$week_start_string"
+                    AND booked_to > "$week_end_string")
                 ORDER BY booked_from
 EOF;
         $bookings = $wpdb->get_results($sql);
