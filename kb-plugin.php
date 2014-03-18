@@ -556,7 +556,10 @@ function kbcal_main($atts)
         if ($wp_query->get("book"))
                 return kbcal_gen_bookpage($atts);
 
-        if (sscanf($wp_query->get("week"), "%04d-%02d", &$year, &$week) != 2) {
+        if (preg_match('/^([0-9]{4})-([0-9]{2})$/', $wp_query->get("week"), $matches)) {
+                $year = $matches[1];
+                $week = $matches[2];
+        } else {
                 $year = date('Y');
                 $week = date('W');
         }
